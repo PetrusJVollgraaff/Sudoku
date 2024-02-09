@@ -44,25 +44,31 @@ class Board:
 
         for i in range(9):
             for j in range(9):
-                color = GRAY
+                backcolor = BLACK
+                textcolor = WHITE
 
                 if self.input_boxes1[j][i].isSelected:
-                    color = RED
+                    backcolor = RED
+                    textcolor = BLACK
+                elif self.input_boxes1[j][i].isEditable:
+                    backcolor = GRAY
+                    textcolor = BLACK
 
-                pygame.draw.rect(win,  color, self.input_boxes1[j][i].get_Rect())
+                pygame.draw.rect(win, backcolor, self.input_boxes1[j][i].get_Rect())
                 num = self.input_boxes1[j][i].get_Num()
                 if num != 0:
                     font = pygame.font.Font(None, 36)
-                    text = font.render(str(num), True, BLACK)
+                    text = font.render(str(num), True, textcolor)
                     win.blit(text, (i * 50 + 20, j * 50 + 15))
 
         # Draw grid lines
         for i in range(10):
-            pygame.draw.line(win, BLACK, (0, i * 50), (450, i * 50), 2)
-            pygame.draw.line(win, BLACK, (i * 50, 0), (i * 50, 450), 2)
+            pygame.draw.line(win, WHITE, (0, i * 50), (450, i * 50), 2)
+            pygame.draw.line(win, WHITE, (i * 50, 0), (i * 50, 450), 2)
 
     def isEditable(self, row, col):
         return self.input_boxes1[row][col].get_Editable()
+
     def set_Selected(self, row, col):
         self.reset_selected()
         self.input_boxes1[row][col].set_Selected(True)
@@ -70,8 +76,7 @@ class Board:
     def reset_selected(self):
         for row in self.input_boxes1:
             for block in row:
-                if block.get_Num() != 0:
-                    block.set_Selected(False)
+                block.set_Selected(False)
 
     def set_Value(self, win, row, col, value):
         self.input_boxes1[row][col].set_Num(value)
