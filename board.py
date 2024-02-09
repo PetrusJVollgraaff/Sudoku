@@ -44,7 +44,7 @@ class Board:
 
         for i in range(9):
             for j in range(9):
-                backcolor = BLACK
+                backcolor = GRAY2
                 textcolor = WHITE
 
                 if self.input_boxes1[j][i].isSelected:
