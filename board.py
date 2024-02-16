@@ -39,6 +39,7 @@ class Board:
         if self.is_in_row(row, num) or self.is_in_col(col, num):
             return False
 
+
         # Check if the number is not in the same 3x3 subgrid
         if self.is_3x3(row, col, num):
             return False
@@ -128,8 +129,30 @@ class Board:
                 block.set_Selected(False)
 
     def set_Value(self, row, col, value):
+        isvalid = self.is_valid_move(row, col, value)
         self.input_boxes[row][col].set_Num(value)
 
-        isvalid = self.is_valid_move(row, col, value)
+        self.input_boxes[row][col].set_valid( isvalid )
 
-        self.input_boxes[row][col].set_valid(isvalid)
+    def check_completed(self):
+        isComplete = True
+        for i, row in enumerate(self.input_boxes):
+            for j, block in enumerate(row):
+                if block.isEditable and block.get_Num() == 0:
+                    isComplete = False
+                    break
+            if not isComplete:
+                break
+
+        if isComplete:
+            return self.is_Winner()
+        else:
+            return None
+    def is_Winner(self):
+        for i, row in enumerate(self.input_boxes):
+            for j, block in enumerate(row):
+                if block.isEditable:
+                    if not self.is_valid_move(i, j, block.get_Num()):
+                        return False
+
+        return True

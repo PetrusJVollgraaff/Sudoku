@@ -16,7 +16,7 @@ def main():
     bo.build_grid()
 
     run = True
-
+    winner = None
     row = 0
     col = 0
     selected = False
@@ -39,6 +39,8 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if selected and event.unicode.isdigit():
                     bo.set_Value(row, col, int(event.unicode))
+                    winner = bo.check_completed()
+                    print(winner)
 
         pygame.display.update()
 
