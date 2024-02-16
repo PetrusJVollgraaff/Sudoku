@@ -1,31 +1,6 @@
 import random
-import pygame
 from Settings import *
 from block import *
-
-MainArray = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-
-def checkArry(array, array2):
-    if (len(array2) > 0):
-        index = checkArrayLen(array2)
-        num = array2[index]
-        while num in array:
-            index = checkArrayLen(array2)
-            num = array2[index]
-
-        return num
-    else:
-        return 0
-
-
-def checkArrayLen(array):
-    index = 0
-    if (len(array) > 1):
-        index = random.randint(0, len(array) - 1)
-
-    return index
-
 
 class Board:
 
