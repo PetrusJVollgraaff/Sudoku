@@ -131,5 +131,5 @@ class Board:
         self.input_boxes[row][col].set_Num(value)
 
         isvalid = self.is_valid_move(row, col, value)
-        print( isvalid )
+
         self.input_boxes[row][col].set_valid(isvalid)
