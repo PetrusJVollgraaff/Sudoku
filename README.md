@@ -14,4 +14,4 @@ This is a small Sodoku game coded with pygame.
 
 ### Outstanding:
 > * Lose/Win Screen
-
+> * Add yellow block to indicate wrong value.

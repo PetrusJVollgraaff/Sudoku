@@ -8,7 +8,7 @@ class Block:
         self.rect = pygame.Rect(self.x1 * 50, self.y1 * 50, 50, 50)
         self.num = 0
         self.isSelected = False
-        self.isEditable = True
+        self.isEditable = False
 
     def set_Num(self, num):
         self.num = num
