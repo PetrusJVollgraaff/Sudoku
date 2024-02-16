@@ -72,7 +72,6 @@ class Board:
 
     def is_in_row(self, row, num):
         for i in range(9):
-            print("row t")
             if self.input_boxes[row][i].get_Num() == num:
                 return True
 
@@ -89,7 +88,6 @@ class Board:
         start_row, start_col = 3 * (row // 3), 3 * (col // 3)
         for i in range(3):
             for j in range(3):
-                print( start_row + i, start_col + j, num, self.input_boxes[start_row + i][start_col + j], self.input_boxes[start_row + i][start_col + j] == num )
                 if self.input_boxes[start_row + i][start_col + j].get_Num() == num:
                     return True
 
@@ -109,20 +107,20 @@ class Board:
     def draw_board(self, win):
         win.fill(WHITE)
 
-        for i, row in enumerate(self.input_boxes):
-            for j, block in enumerate(row):
+        for i in range(9):
+            for j in range(9):
                 backcolor = GRAY2
                 textcolor = WHITE
 
-                if block.isSelected:
+                if self.input_boxes[j][i].isSelected:
                     backcolor = RED
                     textcolor = BLACK
-                elif block.isEditable:
+                elif self.input_boxes[j][i].isEditable:
                     backcolor = GRAY
                     textcolor = BLACK
 
-                pygame.draw.rect(win, backcolor, block.get_Rect())
-                num = block.get_Num()
+                pygame.draw.rect(win, backcolor, self.input_boxes[j][i].get_Rect())
+                num = self.input_boxes[j][i].get_Num()
 
                 if num != 0:
                     font = pygame.font.Font(None, 36)
