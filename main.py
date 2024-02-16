@@ -1,6 +1,5 @@
 import pygame
 from board import Board
-from board2 import Board2
 from Settings import *
 pygame.font.init()
 
@@ -16,9 +15,6 @@ def main():
     bo = Board()
     bo.build_grid()
 
-    #bo2 = Board2()
-    #bo2.build_grid()
-
     run = True
 
     row = 0
@@ -27,7 +23,6 @@ def main():
 
     while run:
         bo.draw_board(win)
-        #bo2.draw_board(win)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
