@@ -10,7 +10,8 @@ This is a small Sodoku game coded with pygame.
 > * Add red block to indicate selected block.
 > * Insuring that only empty block are selectable.
 > * To be able to change number for selected block
+> * Create a number generator (insuring that on start the same number does not occupy the same column/row/3X3)
 
 ### Outstanding:
 > * Lose/Win Screen
-> * Fix the number generator (insuring that on start the same number does not occupy the same column/row)
+
