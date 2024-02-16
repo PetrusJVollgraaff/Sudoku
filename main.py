@@ -43,7 +43,7 @@ def main():
 
             if event.type == pygame.KEYDOWN:
                 if selected and event.unicode.isdigit():
-                    bo.set_Value(win, row, col, int(event.unicode))
+                    bo.set_Value(row, col, int(event.unicode))
 
         pygame.display.update()
 

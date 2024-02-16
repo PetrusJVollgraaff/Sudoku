@@ -9,6 +9,7 @@ class Block:
         self.num = 0
         self.isSelected = False
         self.isEditable = False
+        self.isValid = True
 
     def set_Num(self, num):
         self.num = num
@@ -16,18 +17,20 @@ class Block:
     def set_edit(self, value):
         self.isEditable = value
 
+    def set_valid(self, value):
+        self.isValid = value
+
     def set_Selected(self,value):
         self.isSelected = value
+
     def get_Num(self):
         return self.num
 
     def get_Rect(self):
         return self.rect
 
-
     def isSelected(self):
         return self.isSelected
-
 
     def get_Editable(self):
         return self.isEditable

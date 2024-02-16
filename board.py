@@ -103,7 +103,6 @@ class Board:
             self.input_boxes[row][col].set_Num( 0 )
             self.input_boxes[row][col].set_edit(True)
 
-
     def draw_board(self, win):
         win.fill(WHITE)
 
@@ -115,9 +114,13 @@ class Board:
                 if self.input_boxes[j][i].isSelected:
                     backcolor = RED
                     textcolor = BLACK
+                elif not self.input_boxes[j][i].isValid:
+                    backcolor = YELLOW
+                    textcolor = BLACK
                 elif self.input_boxes[j][i].isEditable:
                     backcolor = GRAY
                     textcolor = BLACK
+
 
                 pygame.draw.rect(win, backcolor, self.input_boxes[j][i].get_Rect())
                 num = self.input_boxes[j][i].get_Num()
@@ -149,5 +152,9 @@ class Board:
             for block in row:
                 block.set_Selected(False)
 
-    def set_Value(self, win, row, col, value):
+    def set_Value(self, row, col, value):
         self.input_boxes[row][col].set_Num(value)
+
+        isvalid = self.is_valid_move(row, col, value)
+        print( isvalid )
+        self.input_boxes[row][col].set_valid(isvalid)
