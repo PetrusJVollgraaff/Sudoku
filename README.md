@@ -2,7 +2,7 @@
 
 ### Description:
 
-This is a small Sodoku game coded with pygame.
+This is a small Sudoku game coded with pygame.
 
 ### Action added:
 > * Start menu screen
