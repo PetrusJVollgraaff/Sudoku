@@ -1,4 +1,4 @@
-# Sodoku
+# Sudoku
 
 ### Description:
 
