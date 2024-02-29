@@ -69,4 +69,7 @@ def StartMenu():
 
 
 pygame.display.set_caption("Sudoku Game")
-StartMenu()
+
+
+if __name__ == "__main__":
+    StartMenu()  # start game
